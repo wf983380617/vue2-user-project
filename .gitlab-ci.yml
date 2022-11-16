@@ -1,0 +1,20 @@
+variables:
+  needWebPack: 1
+  isStatic: 1
+  needNPM: 1
+  pathRemove:  1 
+deployToDestination:
+  stage: deploy
+  tags: [k8s]
+  when: manual
+  script: 
+   - . /JMG/_autoCD_/deployCluster.sh
+    
+#发布测试环境
+deployToTesting:
+  stage: test
+  tags: [k8s]
+  when: manual
+  script: 
+    - . /JMG/_autoCD_/deployCluster.sh
+
